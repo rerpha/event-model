@@ -186,8 +186,8 @@ class DataKey(BaseModel):
         ),
     ]
     shape: Annotated[
-        List[int],
-        Field(description="The shape of the data.  Empty list indicates scalar data."),
+        Union[List[int] | None],
+        Field(description="The shape of the data.  Empty list indicates scalar data. Null indicates irregular/ragged shape."),
     ]
     source: Annotated[
         str, Field(description="The source (ex piece of hardware) of the data.")
